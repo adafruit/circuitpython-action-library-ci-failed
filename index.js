@@ -16,13 +16,13 @@ async function run() {
   // Use a reaction to track if we've replied already. 201 is returned
   // the first time we set it. 200 if it was already created. This saves
   // us from having to look through all of the existing comments.
+
   const result = await octokit.reactions.createForIssue({
       issue_number: issue.number,
       owner: repo.owner,
       repo: repo.repo,
       content: 'eyes'
   });
-
 
   if (result.status == 201) {
     octokit.issues.createComment({
@@ -36,4 +36,8 @@ async function run() {
   }
 }
 
-run();
+try {
+  run();
+} catch (err) {
+  core.setFailed(err.message);
+} 
