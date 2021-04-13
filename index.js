@@ -18,19 +18,19 @@ async function run() {
   // us from having to look through all of the existing comments.
 
   try {
-    console.log(issue.number, repo.owner, repo.repo);
+    console.log(issue.number, repo.owner.login, repo.name);
     const result = await octokit.reactions.createForIssue({
         issue_number: issue.number,
-        owner: repo.owner,
-        repo: repo.repo,
+        owner: repo.owner.login,
+        repo: repo.name,
         content: 'eyes'
     });
 
     if (result.status == 201) {
       octokit.issues.createComment({
         issue_number: issue.number,
-        owner: repo.owner,
-        repo: repo.repo,
+        owner: repo.owner.login,
+        repo: repo.name,
         body: "👋 Thanks for this pull request! Unfortunately, it looks like the automated continuous integration (CI) [test(s) failed](). These can be tricky to fix so we've written a guide on how to fix them locally. It has pages about [running pre-commit locally](https://learn.adafruit.com/creating-and-sharing-a-circuitpython-library/check-your-code) and another about [building the docs locally with sphinx](https://learn.adafruit.com/creating-and-sharing-a-circuitpython-library/sharing-our-docs-on-readthedocs). Thanks for contributing to CircuitPython! If you have more questions, feel free to join [the Adafruit Discord](https://adafru.it/discord) and post in #circuitpython-dev."
       });
     } else {
