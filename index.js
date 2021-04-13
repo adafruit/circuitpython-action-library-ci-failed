@@ -15,6 +15,6 @@ if (result.status == 201) {
     issue_number: github.context.issue.number,
     owner: github.context.repo.owner,
     repo: github.context.repo.repo,
-    body: '👋 Thanks for this pull request! Unfortunately, it looks like the automated continuous integration (CI) [test(s) failed](). These can be tricky to fix so we've written a guide on how to fix them locally. It has pages about [running pre-commit locally](https://learn.adafruit.com/creating-and-sharing-a-circuitpython-library/check-your-code) and another about [building the docs locally with sphinx](https://learn.adafruit.com/creating-and-sharing-a-circuitpython-library/sharing-our-docs-on-readthedocs). Thanks for contributing to CircuitPython! If you have more questions, feel free to join [the Adafruit Discord](https://adafru.it/discord) and post in #circuitpython-dev.'
+    body: "👋 Thanks for this pull request! Unfortunately, it looks like the automated continuous integration (CI) [test(s) failed](). These can be tricky to fix so we've written a guide on how to fix them locally. It has pages about [running pre-commit locally](https://learn.adafruit.com/creating-and-sharing-a-circuitpython-library/check-your-code) and another about [building the docs locally with sphinx](https://learn.adafruit.com/creating-and-sharing-a-circuitpython-library/sharing-our-docs-on-readthedocs). Thanks for contributing to CircuitPython! If you have more questions, feel free to join [the Adafruit Discord](https://adafru.it/discord) and post in #circuitpython-dev."
   });
 }
