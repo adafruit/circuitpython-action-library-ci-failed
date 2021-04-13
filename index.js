@@ -4,7 +4,7 @@ console.log(github.context);
 // Use a reaction to track if we've replied already. 201 is returned
 // the first time we set it. 200 if it was already created. This saves
 // us from having to look through all of the existing comments.
-const result = await github.rest.reactions.createForIssue({
+const result = github.rest.reactions.createForIssue({
     issue_number: github.context.issue.number,
     owner: github.context.repo.owner,
     repo: github.context.repo.repo,
