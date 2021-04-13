@@ -18,6 +18,7 @@ async function run() {
   // us from having to look through all of the existing comments.
 
   try {
+    console.log(issue.number, repo.owner, repo.repo);
     const result = await octokit.reactions.createForIssue({
         issue_number: issue.number,
         owner: repo.owner,
