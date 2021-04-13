@@ -8,7 +8,7 @@ async function run() {
   const octokit = github.getOctokit(token);
 
   const repo = github.context.payload.repository;
-  const issue = github.context.workflow_run.pull_requests[0];
+  const issue = github.context.payload.workflow_run.pull_requests[0];
   console.log(repo);
   console.log(issue);
 
