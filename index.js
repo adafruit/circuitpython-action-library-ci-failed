@@ -1,5 +1,5 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
+import * as core from '@actions/core';
+import * as github from '@actions/github';
 
 async function run() {
   const token = core.getInput('token');
@@ -14,7 +14,7 @@ async function run() {
   // us from having to look through all of the existing comments.
 
   try {
-    const result = await octokit.reactions.createForIssue({
+    const result = await octokit.rest.reactions.createForIssue({
         issue_number: issue.number,
         owner: repo.owner.login,
         repo: repo.name,
@@ -22,7 +22,7 @@ async function run() {
     });
 
     if (result.status == 201) {
-      octokit.issues.createComment({
+      await octokit.rest.issues.createComment({
         issue_number: issue.number,
         owner: repo.owner.login,
         repo: repo.name,
